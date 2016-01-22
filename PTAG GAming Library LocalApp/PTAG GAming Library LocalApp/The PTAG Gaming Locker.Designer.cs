@@ -29,35 +29,35 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PTAG));
-            this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.welcomeBanner = new System.Windows.Forms.Label();
+            this.PTAGlogo = new System.Windows.Forms.PictureBox();
             this.enterButton = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PTAGlogo)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // welcomeBanner
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label1.Location = new System.Drawing.Point(154, 165);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(957, 63);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Welcome to the PTAG Gaming Locker!";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.welcomeBanner.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.welcomeBanner.AutoSize = true;
+            this.welcomeBanner.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.welcomeBanner.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.welcomeBanner.Location = new System.Drawing.Point(154, 165);
+            this.welcomeBanner.Name = "welcomeBanner";
+            this.welcomeBanner.Size = new System.Drawing.Size(957, 63);
+            this.welcomeBanner.TabIndex = 0;
+            this.welcomeBanner.Text = "Welcome to the PTAG Gaming Locker!";
+            this.welcomeBanner.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.welcomeBanner.Click += new System.EventHandler(this.label1_Click);
             // 
-            // pictureBox1
+            // PTAGlogo
             // 
-            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(327, 243);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(603, 456);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.PTAGlogo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.PTAGlogo.Image = ((System.Drawing.Image)(resources.GetObject("PTAGlogo.Image")));
+            this.PTAGlogo.Location = new System.Drawing.Point(327, 243);
+            this.PTAGlogo.Name = "PTAGlogo";
+            this.PTAGlogo.Size = new System.Drawing.Size(603, 456);
+            this.PTAGlogo.TabIndex = 1;
+            this.PTAGlogo.TabStop = false;
             // 
             // enterButton
             // 
@@ -74,6 +74,7 @@
             this.enterButton.TabIndex = 2;
             this.enterButton.Text = "Click Here To Enter";
             this.enterButton.UseVisualStyleBackColor = false;
+            this.enterButton.Click += new System.EventHandler(this.enterButton_Click);
             // 
             // PTAG
             // 
@@ -82,13 +83,13 @@
             this.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.ClientSize = new System.Drawing.Size(1308, 838);
             this.Controls.Add(this.enterButton);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.PTAGlogo);
+            this.Controls.Add(this.welcomeBanner);
             this.ForeColor = System.Drawing.SystemColors.Control;
             this.Name = "PTAG";
             this.Text = "The PTAG Gaming Locker";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PTAGlogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -96,8 +97,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label welcomeBanner;
+        private System.Windows.Forms.PictureBox PTAGlogo;
         private System.Windows.Forms.Button enterButton;
     }
 }

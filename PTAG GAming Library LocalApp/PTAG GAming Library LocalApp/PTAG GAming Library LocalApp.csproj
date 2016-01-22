@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Sign-In.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sign-In.Designer.cs">
+      <DependentUpon>Sign-In.cs</DependentUpon>
+    </Compile>
     <Compile Include="The PTAG Gaming Locker.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -54,6 +60,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Sign-In.resx">
+      <DependentUpon>Sign-In.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="The PTAG Gaming Locker.resx">
       <DependentUpon>The PTAG Gaming Locker.cs</DependentUpon>
     </EmbeddedResource>
