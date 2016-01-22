@@ -123,7 +123,8 @@ int main()
 	cin >> keyDecrypt;
 	cout << "Decrypting ciphertext......." << endl;
 	for (int i = 0; i < ciphertextIn.size(); i++) {
-		vector<char>crypto2 = decrypt(keyDecrypt, plaintextIn[i]);
+		vector<char>crypto2 = decrypt(keyDecrypt, ciphertextIn[i]);
+		cout << ciphertextIn[i] << endl;
 		for (int i = 0;i < crypto2.size();i++) {
 			decryptIn << crypto2[i];
 		}
@@ -139,7 +140,7 @@ int main()
 	}
 	else {
 		cout << "cant output cipher" << endl;
-	}
+	}*/
     return 0;
 }
 
