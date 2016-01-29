@@ -36,7 +36,14 @@ namespace The_Gaming_Library
             }
             else
             {
-                
+                if (data.Validate(userName, password) == false)
+                {
+                    MessageBox.Show("Invalid user name or password, please try again");
+                }
+                else
+                {
+                    MessageBox.Show("Were in");
+                }
             }
         }
     }

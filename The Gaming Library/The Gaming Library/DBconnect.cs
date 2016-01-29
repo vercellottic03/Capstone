@@ -7,6 +7,7 @@ using System.Diagnostics;
 //namespaces so I do not need to put system. and system.IO. in front of every command
 using System;
 using System.IO;
+using System.Data;
 
 namespace The_Gaming_Library
 {
@@ -20,6 +21,7 @@ namespace The_Gaming_Library
         private string database;
         private string uid;
         private string password;
+        private string connectionString;
 
         //Constructor
         public void DBConnect()
@@ -35,7 +37,7 @@ namespace The_Gaming_Library
             database = "ptag";
             uid = "root";
             password = "spinner";
-            string connectionString;
+
             connectionString = "SERVER=" + server + ";" + "DATABASE=" +
             database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
 
@@ -86,26 +88,32 @@ namespace The_Gaming_Library
             }
 
         }
-        public void Validate(string username, string password)
+        public bool Validate(string username, string password)
         {
-            string query = "UPDATE tableinfo SET name='Joe', age='22' WHERE name='John Smith'";
-
+            string query = "SELECT * FROM Users WHERE UserName ='"+username + "'and Password ='"+ password + "'";
+            MySqlCommand cmd = new MySqlCommand(query, connection);
+            //Create a data reader and Execute the command
+            MySqlDataReader dataReader = cmd.ExecuteReader();
+           
             //Open connection, check if it is functioning properly
-            if (this.OpenConnection() == true)
-            {
-                //create mysql command
-                MySqlCommand cmd = new MySqlCommand();
-                //Assign the query using CommandText
-                cmd.CommandText = query;
+            //if (this.OpenConnection() == true)
+            //{
                 //Assign the connection using Connection
-                cmd.Connection = connection;
-
-                //Execute query
-                cmd.ExecuteNonQuery();
-
-                //close connection
-                this.CloseConnection();
+                if (dataReader.Read())
+                {
+                    MessageBox.Show("were in");
+                    dataReader.Close();
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("hahahahah nope");
+                    dataReader.Close();
+                    return false;
+                }
+                
             }
+         
         }
     }
-}
+
