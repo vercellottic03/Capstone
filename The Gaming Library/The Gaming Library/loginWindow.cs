@@ -25,8 +25,8 @@ namespace The_Gaming_Library
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string userName = textBox1.Text;
-            string password = textBox2.Text;
+            string userName = UserNameField.Text;
+            string password = PasswordField.Text;
             DBconnect data = new DBconnect();
             data.DBConnect();
             bool isOpen = data.OpenConnection();
@@ -42,9 +42,21 @@ namespace The_Gaming_Library
                 }
                 else
                 {
-                    MessageBox.Show("Were in");
+                    if(data.isAdmin(userName) == true)
+                    {
+                        MessageBox.Show("Welcome Admin");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Welcome User");
+                    }
                 }
             }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -90,30 +90,47 @@ namespace The_Gaming_Library
         }
         public bool Validate(string username, string password)
         {
-            string query = "SELECT * FROM Users WHERE UserName ='"+username + "'and Password ='"+ password + "'";
+            string query = "SELECT * FROM Users WHERE UserName ='" + username + "'and Password ='" + password + "'";
             MySqlCommand cmd = new MySqlCommand(query, connection);
             //Create a data reader and Execute the command
             MySqlDataReader dataReader = cmd.ExecuteReader();
-           
-            //Open connection, check if it is functioning properly
-            //if (this.OpenConnection() == true)
-            //{
-                //Assign the connection using Connection
-                if (dataReader.Read())
+
+
+            if (dataReader.Read())
+            {
+                dataReader.Close();
+                this.CloseConnection();
+                return true;
+            }
+            else
+            {
+                dataReader.Close();
+                this.CloseConnection();
+                return false;
+            }
+        }
+        public bool isAdmin(string username)
+        {
+            string query = "SELECT Role FROM Users WHERE UserName ='" + username + "'";
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                string role = Convert.ToString(cmd.ExecuteScalar());
+                MessageBox.Show(role);
+                if (role == "admin")
                 {
-                    MessageBox.Show("were in");
-                    dataReader.Close();
                     return true;
                 }
                 else
                 {
-                    MessageBox.Show("hahahahah nope");
-                    dataReader.Close();
                     return false;
                 }
-                
             }
-         
+            else
+            {
+                return false;
+            }
         }
     }
+}
 
