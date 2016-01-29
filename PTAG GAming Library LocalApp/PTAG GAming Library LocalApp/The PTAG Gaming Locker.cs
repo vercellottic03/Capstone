@@ -30,7 +30,7 @@ namespace PTAG_GAming_Library_LocalApp
         private void enterButton_Click(object sender, EventArgs e)
         {
             Sign_In formSign_In = new Sign_In();
-            formSign_In.Show();
+            formSign_In.ShowDialog();
         }
     }
 }
