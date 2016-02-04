@@ -116,7 +116,6 @@ namespace The_Gaming_Library
             {
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 string role = Convert.ToString(cmd.ExecuteScalar());
-                MessageBox.Show(role);
                 if (role == "admin")
                 {
                     return true;

@@ -13,6 +13,9 @@ namespace The_Gaming_Library
 {
     public partial class LOGINWINDOW : Form
     {
+
+        public static string userName;
+
         public LOGINWINDOW()
         {
             InitializeComponent();
@@ -25,7 +28,7 @@ namespace The_Gaming_Library
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string userName = UserNameField.Text;
+            userName = UserNameField.Text;
             string password = PasswordField.Text;
             DBconnect data = new DBconnect();
             data.DBConnect();
@@ -45,11 +48,23 @@ namespace The_Gaming_Library
                     if(data.isAdmin(userName) == true)
                     {
                         MessageBox.Show("Welcome Admin");
+                        AdminWindow ad = new AdminWindow();
+                        ad.RefToLogin = this;
+                        this.Visible = false;
+                        ad.Show();
+                       
                     }
                     else
                     {
                         MessageBox.Show("Welcome User");
+                        UserWindow us = new UserWindow();
+                        us.RefToLogin = this;
+                        this.Visible = false;
+                        us.Show();
+
                     }
+                    UserNameField.Text = string.Empty;
+                    PasswordField.Text = string.Empty;
                 }
             }
         }

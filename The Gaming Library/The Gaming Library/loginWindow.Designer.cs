@@ -73,7 +73,7 @@
             // 
             this.UserNameField.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.UserNameField.Location = new System.Drawing.Point(775, 190);
-            this.UserNameField.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.UserNameField.Margin = new System.Windows.Forms.Padding(2);
             this.UserNameField.Name = "UserNameField";
             this.UserNameField.Size = new System.Drawing.Size(187, 20);
             this.UserNameField.TabIndex = 2;
@@ -82,7 +82,7 @@
             // 
             this.PasswordField.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.PasswordField.Location = new System.Drawing.Point(775, 260);
-            this.PasswordField.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PasswordField.Margin = new System.Windows.Forms.Padding(2);
             this.PasswordField.Name = "PasswordField";
             this.PasswordField.PasswordChar = '*';
             this.PasswordField.Size = new System.Drawing.Size(187, 20);
@@ -106,7 +106,7 @@
             this.LogInButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.LogInButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LogInButton.Location = new System.Drawing.Point(805, 329);
-            this.LogInButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.LogInButton.Margin = new System.Windows.Forms.Padding(2);
             this.LogInButton.Name = "LogInButton";
             this.LogInButton.Size = new System.Drawing.Size(157, 61);
             this.LogInButton.TabIndex = 6;
@@ -117,9 +117,10 @@
             // ExitButton
             // 
             this.ExitButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.ExitButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.ExitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ExitButton.Location = new System.Drawing.Point(557, 329);
-            this.ExitButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ExitButton.Margin = new System.Windows.Forms.Padding(2);
             this.ExitButton.Name = "ExitButton";
             this.ExitButton.Size = new System.Drawing.Size(159, 61);
             this.ExitButton.TabIndex = 7;
@@ -151,8 +152,10 @@
             // 
             // LOGINWINDOW
             // 
+            this.AcceptButton = this.LogInButton;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.Desktop;
+            this.CancelButton = this.ExitButton;
             this.ClientSize = new System.Drawing.Size(1028, 434);
             this.Controls.Add(this.PTAGLogo);
             this.Controls.Add(this.PleaseLogin);
@@ -164,7 +167,7 @@
             this.Controls.Add(this.usernameLabel);
             this.Controls.Add(this.loginTitle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "LOGINWINDOW";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
