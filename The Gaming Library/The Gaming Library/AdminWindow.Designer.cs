@@ -31,6 +31,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.Logout = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.Inventory = new System.Windows.Forms.Button();
+            this.addGame = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -61,20 +63,50 @@
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.Lime;
-            this.label2.Location = new System.Drawing.Point(33, 148);
+            this.label2.Location = new System.Drawing.Point(556, 88);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(214, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Click here to make sure name is still working";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
+            // Inventory
+            // 
+            this.Inventory.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Inventory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.Inventory.CausesValidation = false;
+            this.Inventory.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Inventory.Location = new System.Drawing.Point(462, 139);
+            this.Inventory.Name = "Inventory";
+            this.Inventory.Size = new System.Drawing.Size(404, 235);
+            this.Inventory.TabIndex = 3;
+            this.Inventory.Text = "View Inventory";
+            this.Inventory.UseVisualStyleBackColor = false;
+            // 
+            // addGame
+            // 
+            this.addGame.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.addGame.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.addGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addGame.Location = new System.Drawing.Point(462, 411);
+            this.addGame.Name = "addGame";
+            this.addGame.Size = new System.Drawing.Size(404, 235);
+            this.addGame.TabIndex = 4;
+            this.addGame.Text = "Add New Game";
+            this.addGame.UseVisualStyleBackColor = false;
+            this.addGame.Click += new System.EventHandler(this.button2_Click);
+            // 
             // AdminWindow
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1320, 682);
+            this.ControlBox = false;
+            this.Controls.Add(this.addGame);
+            this.Controls.Add(this.Inventory);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.Logout);
             this.Controls.Add(this.label1);
@@ -93,5 +125,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button Logout;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button Inventory;
+        private System.Windows.Forms.Button addGame;
     }
 }

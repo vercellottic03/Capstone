@@ -37,5 +37,10 @@ namespace The_Gaming_Library
         {
             MessageBox.Show(name);
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

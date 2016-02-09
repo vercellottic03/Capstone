@@ -35,6 +35,35 @@ namespace The_Gaming_Library
             }
             
         }
+        private void button2_MouseEnter(object sender, EventArgs e)
+        {
+            checkIn.BackColor = Color.DarkGreen;
+        }
+        private void button2_MouseLeave(object sender, EventArgs e)
+        {
+            checkIn.BackColor = Color.Chartreuse;
+        }
+        private void button1_MouseEnter(object sender, EventArgs e)
+        {
+            checkOut.BackColor = Color.DarkGreen;
+        }
+        private void button1_MouseLeave(object sender, EventArgs e)
+        {
+            checkOut.BackColor = Color.Chartreuse;
+        }
+        private void logOut_MouseEnter(object sender, EventArgs e)
+        {
+            Logout.BackColor = Color.DarkGreen;
+        }
+        private void logOut_MouseLeave(object sender, EventArgs e)
+        {
+            Logout.BackColor = Color.Chartreuse;
+        }
+
+        private void UserWindow_Load(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
 

@@ -33,10 +33,10 @@ namespace The_Gaming_Library
         //Initialize values to use as credentials for database connection
         private void Initialize()
         {
-            server = "localhost";
-            database = "ptag";
-            uid = "root";
-            password = "spinner";
+            server = "192.185.150.102";
+            database = "feathers_ptag";
+            uid = "feathers_ptag";
+            password = "P3@c0ck$";
 
             connectionString = "SERVER=" + server + ";" + "DATABASE=" +
             database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
