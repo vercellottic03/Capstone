@@ -52,6 +52,7 @@ namespace The_Gaming_Library
             // Logout
             // 
             this.Logout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.Logout.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Logout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.Logout.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Logout.ForeColor = System.Drawing.Color.Black;
@@ -62,6 +63,8 @@ namespace The_Gaming_Library
             this.Logout.Text = "Logout";
             this.Logout.UseVisualStyleBackColor = false;
             this.Logout.Click += new System.EventHandler(this.Logout_Click);
+            this.Logout.MouseEnter += new System.EventHandler(this.logOut_MouseEnter);
+            this.Logout.MouseLeave += new System.EventHandler(this.logOut_MouseLeave);
             // 
             // Inventory
             // 
@@ -75,6 +78,8 @@ namespace The_Gaming_Library
             this.Inventory.TabIndex = 3;
             this.Inventory.Text = "View Inventory";
             this.Inventory.UseVisualStyleBackColor = false;
+            this.Inventory.MouseEnter += new System.EventHandler(this.button1_MouseEnter);
+            this.Inventory.MouseLeave += new System.EventHandler(this.button1_MouseLeave);
             // 
             // addGame
             // 
@@ -88,21 +93,24 @@ namespace The_Gaming_Library
             this.addGame.Text = "Add New Game";
             this.addGame.UseVisualStyleBackColor = false;
             this.addGame.Click += new System.EventHandler(this.button2_Click);
+            this.addGame.MouseEnter += new System.EventHandler(this.button2_MouseEnter);
+            this.addGame.MouseLeave += new System.EventHandler(this.button2_MouseLeave);
             // 
             // adminAddGame
             // 
             this.adminAddGame.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.adminAddGame.AutoSize = true;
+            this.adminAddGame.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.adminAddGame.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.adminAddGame.Location = new System.Drawing.Point(158, 139);
+            this.adminAddGame.Location = new System.Drawing.Point(158, 91);
             this.adminAddGame.Name = "adminAddGame";
-            this.adminAddGame.Size = new System.Drawing.Size(1048, 531);
+            this.adminAddGame.Size = new System.Drawing.Size(1008, 579);
             this.adminAddGame.TabIndex = 5;
             this.adminAddGame.Visible = false;
             // 
             // AdminWindow
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1320, 682);
             this.ControlBox = false;
@@ -117,7 +125,6 @@ namespace The_Gaming_Library
             this.Text = "AdminWindow";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

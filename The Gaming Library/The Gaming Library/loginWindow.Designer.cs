@@ -44,13 +44,12 @@
             // loginTitle
             // 
             this.loginTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.loginTitle.AutoSize = true;
             this.loginTitle.Font = new System.Drawing.Font("Stencil", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.loginTitle.ForeColor = System.Drawing.Color.Chartreuse;
             this.loginTitle.Location = new System.Drawing.Point(32, 27);
             this.loginTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.loginTitle.Name = "loginTitle";
-            this.loginTitle.Size = new System.Drawing.Size(950, 57);
+            this.loginTitle.Size = new System.Drawing.Size(950, 63);
             this.loginTitle.TabIndex = 0;
             this.loginTitle.Text = "WELCOME TO THE PTAG GAMING LOCKER!";
             this.loginTitle.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -77,7 +76,6 @@
             this.UserNameField.Name = "UserNameField";
             this.UserNameField.Size = new System.Drawing.Size(187, 20);
             this.UserNameField.TabIndex = 2;
-            this.UserNameField.Focus();
             // 
             // PasswordField
             // 
@@ -159,6 +157,7 @@
             // 
             this.AcceptButton = this.LogInButton;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.Desktop;
             this.CancelButton = this.ExitButton;
             this.ClientSize = new System.Drawing.Size(1028, 434);
@@ -172,6 +171,7 @@
             this.Controls.Add(this.usernameLabel);
             this.Controls.Add(this.loginTitle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "LOGINWINDOW";

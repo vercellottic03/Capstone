@@ -38,6 +38,29 @@ namespace The_Gaming_Library
             adminAddGame.Visible = true;
             adminAddGame.GameUPC.Focus();
         }
-
+        private void button2_MouseEnter(object sender, EventArgs e)
+        {
+            addGame.BackColor = Color.DarkGreen;
+        }
+        private void button2_MouseLeave(object sender, EventArgs e)
+        {
+            addGame.BackColor = Color.Chartreuse;
+        }
+        private void button1_MouseEnter(object sender, EventArgs e)
+        {
+            Inventory.BackColor = Color.DarkGreen;
+        }
+        private void button1_MouseLeave(object sender, EventArgs e)
+        {
+            Inventory.BackColor = Color.Chartreuse;
+        }
+        private void logOut_MouseEnter(object sender, EventArgs e)
+        {
+            Logout.BackColor = Color.DarkGreen;
+        }
+        private void logOut_MouseLeave(object sender, EventArgs e)
+        {
+            Logout.BackColor = Color.Chartreuse;
+        }
     }
 }

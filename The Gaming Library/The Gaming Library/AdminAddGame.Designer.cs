@@ -58,7 +58,7 @@
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button1.BackColor = System.Drawing.Color.Chartreuse;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(3, 443);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(124, 71);
@@ -66,6 +66,8 @@
             this.button1.Text = "Cancel";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.MouseEnter += new System.EventHandler(this.logOut_MouseEnter);
+            this.button1.MouseLeave += new System.EventHandler(this.logOut_MouseLeave);
             // 
             // AdminAddGame
             // 

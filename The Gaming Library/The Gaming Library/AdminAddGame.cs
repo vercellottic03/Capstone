@@ -21,5 +21,13 @@ namespace The_Gaming_Library
         {
             this.Visible = false;
         }
+        private void logOut_MouseEnter(object sender, EventArgs e)
+        {
+            button1.BackColor = Color.DarkGreen;
+        }
+        private void logOut_MouseLeave(object sender, EventArgs e)
+        {
+            button1.BackColor = Color.Chartreuse;
+        }
     }
 }
