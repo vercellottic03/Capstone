@@ -1,4 +1,6 @@
-﻿namespace The_Gaming_Library
+﻿using System.Windows.Forms;
+
+namespace The_Gaming_Library
 {
     partial class AdminWindow
     {
@@ -28,24 +30,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.welcomeLabel = new System.Windows.Forms.Label();
             this.Logout = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
             this.Inventory = new System.Windows.Forms.Button();
             this.addGame = new System.Windows.Forms.Button();
+            this.adminAddGame = new The_Gaming_Library.AdminAddGame();
             this.SuspendLayout();
             // 
-            // label1
+            // welcomeLabel
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label1.Font = new System.Drawing.Font("Stencil", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label1.Location = new System.Drawing.Point(12, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1296, 64);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Welcome Admin! What would you like to do?";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.welcomeLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.welcomeLabel.Font = new System.Drawing.Font("Stencil", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.welcomeLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.welcomeLabel.Location = new System.Drawing.Point(12, 24);
+            this.welcomeLabel.Name = "welcomeLabel";
+            this.welcomeLabel.Size = new System.Drawing.Size(1296, 64);
+            this.welcomeLabel.TabIndex = 0;
+            this.welcomeLabel.Text = "Hello Admin! Choose What You Would Like To Do:";
+            this.welcomeLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // Logout
             // 
@@ -60,18 +62,6 @@
             this.Logout.Text = "Logout";
             this.Logout.UseVisualStyleBackColor = false;
             this.Logout.Click += new System.EventHandler(this.Logout_Click);
-            // 
-            // label2
-            // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.Lime;
-            this.label2.Location = new System.Drawing.Point(556, 88);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(214, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Click here to make sure name is still working";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // Inventory
             // 
@@ -99,17 +89,28 @@
             this.addGame.UseVisualStyleBackColor = false;
             this.addGame.Click += new System.EventHandler(this.button2_Click);
             // 
+            // adminAddGame
+            // 
+            this.adminAddGame.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.adminAddGame.AutoSize = true;
+            this.adminAddGame.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.adminAddGame.Location = new System.Drawing.Point(158, 139);
+            this.adminAddGame.Name = "adminAddGame";
+            this.adminAddGame.Size = new System.Drawing.Size(1048, 531);
+            this.adminAddGame.TabIndex = 5;
+            this.adminAddGame.Visible = false;
+            // 
             // AdminWindow
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1320, 682);
             this.ControlBox = false;
+            this.Controls.Add(this.adminAddGame);
             this.Controls.Add(this.addGame);
             this.Controls.Add(this.Inventory);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.Logout);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.welcomeLabel);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AdminWindow";
@@ -122,10 +123,10 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.Label welcomeLabel;
         private System.Windows.Forms.Button Logout;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button Inventory;
         private System.Windows.Forms.Button addGame;
+        private AdminAddGame adminAddGame;
     }
 }

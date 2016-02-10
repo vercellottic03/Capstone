@@ -77,6 +77,7 @@
             this.UserNameField.Name = "UserNameField";
             this.UserNameField.Size = new System.Drawing.Size(187, 20);
             this.UserNameField.TabIndex = 2;
+            this.UserNameField.Focus();
             // 
             // PasswordField
             // 

@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminAddGame.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminAddGame.Designer.cs">
+      <DependentUpon>AdminAddGame.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,6 +74,9 @@
     <Compile Include="UserWindow.Designer.cs">
       <DependentUpon>UserWindow.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AdminAddGame.resx">
+      <DependentUpon>AdminAddGame.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdminWindow.resx">
       <DependentUpon>AdminWindow.cs</DependentUpon>
     </EmbeddedResource>

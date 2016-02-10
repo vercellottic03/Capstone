@@ -33,14 +33,11 @@ namespace The_Gaming_Library
             }
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show(name);
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
-
+            adminAddGame.Visible = true;
+            adminAddGame.GameUPC.Focus();
         }
+
     }
 }
