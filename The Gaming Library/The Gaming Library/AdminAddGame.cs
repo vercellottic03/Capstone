@@ -44,6 +44,10 @@ namespace The_Gaming_Library
 
         public void submit_Click(object sender, EventArgs e)
         {
+            gameName = "";
+            genre = "";
+            imageLink = "";
+            description = "";
             string UPC = GameUPC.Text;
             string URLString = "http://api.walmartlabs.com/v1/items?apiKey=gnfyqemcbacazx8qwbt6fy53&upc=" + UPC + "&format=xml";
             try
@@ -85,16 +89,17 @@ namespace The_Gaming_Library
                             reader.Read();
                             description = reader.Value;
                         }
-                        if (reader.Name == "largeImage" && imageLink == null)
+                        if (reader.Name == "largeImage")
                         {
                             reader.Read();
                             imageLink = reader.Value;
+                            break;
                             //displayImage(imageLink); 
                         }
                     }
                 }
                 //MessageBox.Show("Game name: '" + gameName + "\nGame Price: " + gamePrice + "\nDescription: " + description+ "\nImage linked from this URL: "+imageLink);
-                if (genre == null)
+                if (genre == "")
                 {
                     MessageBox.Show("Told ya");
                 }
