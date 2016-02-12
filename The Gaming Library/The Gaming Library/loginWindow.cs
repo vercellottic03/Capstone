@@ -47,7 +47,7 @@ namespace The_Gaming_Library
                 {
                     if(data.isAdmin(userName) == true)
                     {
-                        MessageBox.Show("Welcome Admin");
+                        //MessageBox.Show("Welcome Admin");
                         AdminWindow ad = new AdminWindow();
                         ad.RefToLogin = this;
                         this.Visible = false;

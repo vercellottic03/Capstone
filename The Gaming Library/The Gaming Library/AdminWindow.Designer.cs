@@ -30,6 +30,7 @@ namespace The_Gaming_Library
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminWindow));
             this.welcomeLabel = new System.Windows.Forms.Label();
             this.Logout = new System.Windows.Forms.Button();
             this.Inventory = new System.Windows.Forms.Button();
@@ -41,7 +42,7 @@ namespace The_Gaming_Library
             // 
             this.welcomeLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.welcomeLabel.Font = new System.Drawing.Font("Stencil", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.welcomeLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.welcomeLabel.ForeColor = System.Drawing.Color.Chartreuse;
             this.welcomeLabel.Location = new System.Drawing.Point(12, 24);
             this.welcomeLabel.Name = "welcomeLabel";
             this.welcomeLabel.Size = new System.Drawing.Size(1296, 64);
@@ -53,7 +54,8 @@ namespace The_Gaming_Library
             // 
             this.Logout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Logout.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.Logout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.Logout.BackColor = System.Drawing.Color.Chartreuse;
+            this.Logout.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.Logout.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Logout.ForeColor = System.Drawing.Color.Black;
             this.Logout.Location = new System.Drawing.Point(12, 600);
@@ -69,7 +71,7 @@ namespace The_Gaming_Library
             // Inventory
             // 
             this.Inventory.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Inventory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.Inventory.BackColor = System.Drawing.Color.Chartreuse;
             this.Inventory.CausesValidation = false;
             this.Inventory.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Inventory.Location = new System.Drawing.Point(462, 139);
@@ -84,7 +86,7 @@ namespace The_Gaming_Library
             // addGame
             // 
             this.addGame.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.addGame.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.addGame.BackColor = System.Drawing.Color.Chartreuse;
             this.addGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addGame.Location = new System.Drawing.Point(462, 411);
             this.addGame.Name = "addGame";
@@ -98,8 +100,7 @@ namespace The_Gaming_Library
             // 
             // adminAddGame
             // 
-            this.adminAddGame.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.adminAddGame.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.adminAddGame.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.adminAddGame.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.adminAddGame.Location = new System.Drawing.Point(158, 91);
             this.adminAddGame.Name = "adminAddGame";
@@ -112,6 +113,7 @@ namespace The_Gaming_Library
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.Black;
+            this.CancelButton = this.Logout;
             this.ClientSize = new System.Drawing.Size(1320, 682);
             this.ControlBox = false;
             this.Controls.Add(this.adminAddGame);
@@ -119,6 +121,7 @@ namespace The_Gaming_Library
             this.Controls.Add(this.Inventory);
             this.Controls.Add(this.Logout);
             this.Controls.Add(this.welcomeLabel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AdminWindow";
