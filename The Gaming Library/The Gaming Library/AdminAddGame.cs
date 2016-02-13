@@ -102,6 +102,7 @@ namespace The_Gaming_Library
                 {
                     gameToAdd view = new gameToAdd();
                     view.Show();
+                    this.Refresh();
                 }
             }
             catch(WebException ex)
@@ -111,19 +112,6 @@ namespace The_Gaming_Library
                 {
                     MessageBox.Show("Invalid input, please scan a proper video game or UPC code");
                 }
-            }
-
-        }
-        private void displayImage(string imageURL)
-        {
-            MessageBox.Show(imageURL);
-            var request = WebRequest.Create(imageURL);
-
-            using (var response = request.GetResponse())
-            using (var stream = response.GetResponseStream())
-            {
-                //pictureBox1.Image = Bitmap.FromStream(stream);
-                //pictureBox1.Visible = true;
             }
         }
     }
