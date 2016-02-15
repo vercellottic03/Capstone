@@ -36,6 +36,8 @@
             this.description = new System.Windows.Forms.Label();
             this.confirm = new System.Windows.Forms.Button();
             this.cancel = new System.Windows.Forms.Button();
+            this.genreBox = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,7 +68,7 @@
             this.gameName.AutoSize = true;
             this.gameName.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gameName.ForeColor = System.Drawing.Color.Chartreuse;
-            this.gameName.Location = new System.Drawing.Point(518, 87);
+            this.gameName.Location = new System.Drawing.Point(518, 79);
             this.gameName.Name = "gameName";
             this.gameName.Size = new System.Drawing.Size(79, 29);
             this.gameName.TabIndex = 2;
@@ -78,7 +80,7 @@
             this.gamePrice.AutoSize = true;
             this.gamePrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gamePrice.ForeColor = System.Drawing.Color.Chartreuse;
-            this.gamePrice.Location = new System.Drawing.Point(518, 125);
+            this.gamePrice.Location = new System.Drawing.Point(518, 117);
             this.gamePrice.Name = "gamePrice";
             this.gamePrice.Size = new System.Drawing.Size(79, 29);
             this.gamePrice.TabIndex = 3;
@@ -89,12 +91,12 @@
             this.description.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.description.AutoEllipsis = true;
             this.description.AutoSize = true;
-            this.description.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.description.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.description.ForeColor = System.Drawing.Color.Chartreuse;
-            this.description.Location = new System.Drawing.Point(520, 166);
+            this.description.Location = new System.Drawing.Point(522, 157);
             this.description.MaximumSize = new System.Drawing.Size(500, 0);
             this.description.Name = "description";
-            this.description.Size = new System.Drawing.Size(51, 20);
+            this.description.Size = new System.Drawing.Size(45, 16);
             this.description.TabIndex = 4;
             this.description.Text = "label4";
             // 
@@ -102,7 +104,7 @@
             // 
             this.confirm.BackColor = System.Drawing.Color.Chartreuse;
             this.confirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.confirm.Location = new System.Drawing.Point(620, 395);
+            this.confirm.Location = new System.Drawing.Point(619, 416);
             this.confirm.Name = "confirm";
             this.confirm.Size = new System.Drawing.Size(171, 91);
             this.confirm.TabIndex = 5;
@@ -115,13 +117,43 @@
             this.cancel.BackColor = System.Drawing.Color.Chartreuse;
             this.cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancel.Location = new System.Drawing.Point(944, 395);
+            this.cancel.Location = new System.Drawing.Point(943, 416);
             this.cancel.Name = "cancel";
             this.cancel.Size = new System.Drawing.Size(171, 91);
             this.cancel.TabIndex = 6;
             this.cancel.Text = "NO";
             this.cancel.UseVisualStyleBackColor = false;
             this.cancel.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // genreBox
+            // 
+            this.genreBox.BackColor = System.Drawing.Color.Chartreuse;
+            this.genreBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.genreBox.FormattingEnabled = true;
+            this.genreBox.Items.AddRange(new object[] {
+            "Adventure ",
+            "Fighting",
+            "FPS ",
+            "Racing ",
+            "Sports"});
+            this.genreBox.Location = new System.Drawing.Point(1015, 87);
+            this.genreBox.Name = "genreBox";
+            this.genreBox.Size = new System.Drawing.Size(121, 24);
+            this.genreBox.Sorted = true;
+            this.genreBox.TabIndex = 7;
+            this.genreBox.Text = "Choose Here";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Chartreuse;
+            this.label2.Location = new System.Drawing.Point(911, 90);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(98, 16);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Choose Genre:";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // gameToAdd
             // 
@@ -131,6 +163,8 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.CancelButton = this.cancel;
             this.ClientSize = new System.Drawing.Size(1233, 519);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.genreBox);
             this.Controls.Add(this.cancel);
             this.Controls.Add(this.confirm);
             this.Controls.Add(this.description);
@@ -157,5 +191,7 @@
         private System.Windows.Forms.Label description;
         private System.Windows.Forms.Button confirm;
         private System.Windows.Forms.Button cancel;
+        private System.Windows.Forms.ComboBox genreBox;
+        private System.Windows.Forms.Label label2;
     }
 }

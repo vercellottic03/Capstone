@@ -101,10 +101,11 @@ namespace The_Gaming_Library
             // adminAddGame
             // 
             this.adminAddGame.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.adminAddGame.AutoSize = true;
             this.adminAddGame.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.adminAddGame.Location = new System.Drawing.Point(158, 91);
             this.adminAddGame.Name = "adminAddGame";
-            this.adminAddGame.Size = new System.Drawing.Size(1008, 579);
+            this.adminAddGame.Size = new System.Drawing.Size(1011, 579);
             this.adminAddGame.TabIndex = 5;
             this.adminAddGame.Visible = false;
             // 
@@ -128,6 +129,7 @@ namespace The_Gaming_Library
             this.Text = "AdminWindow";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

@@ -17,7 +17,6 @@ namespace The_Gaming_Library
         private MySqlConnection connection;
         //server string, will be assigned value of localhost
         private string server;
-        //database string, assigned connectcsharptomysql
         private string database;
         private string uid;
         private string password;
@@ -130,6 +129,47 @@ namespace The_Gaming_Library
                 return false;
             }
         }
+        public void populateDB(string name, string genre, string console, string descr)
+        {
+            this.CloseConnection();
+            if (this.OpenConnection() == true)
+            {
+                int exists = 0;
+                using (MySqlCommand cmd = new MySqlCommand("select count(*) from Games where name = @name", connection))
+                {
+                    cmd.Parameters.AddWithValue("name", name);
+                    exists = Convert.ToInt32(cmd.ExecuteScalar());
+                }
+
+                if (exists != 0)
+                {
+                    MessageBox.Show("Games already in the db, incrementing counter...");
+                    using (MySqlCommand cmd = new MySqlCommand("UPDATE Games SET count = count + 1 WHERE name=@name", connection))
+                    {
+                        cmd.Parameters.AddWithValue("name", name);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                else
+                {
+                    using (MySqlCommand cmd = new MySqlCommand("INSERT INTO Games(name, console, genre, description) values (@name, @console, @genre, @description)", connection))
+                    {
+                        cmd.Parameters.AddWithValue("name", name);
+                        cmd.Parameters.AddWithValue("console", console);
+                        cmd.Parameters.AddWithValue("genre", genre);
+                        cmd.Parameters.AddWithValue("description", descr);
+                        cmd.ExecuteNonQuery();
+                    }
+                    MessageBox.Show("Item should be succesfully added, check the DB");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Issues connecting to the database");
+            }
+            this.CloseConnection();   
+        }
     }
 }
+
 

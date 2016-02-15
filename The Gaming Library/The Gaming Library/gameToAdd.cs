@@ -20,7 +20,7 @@ namespace The_Gaming_Library
         protected override void OnLoad(EventArgs e)
         {
             gameName.Text = AdminAddGame.gameName;
-            gamePrice.Text = AdminAddGame.genre;
+            gamePrice.Text = AdminAddGame.console;
             description.Text = AdminAddGame.description;
             string url = AdminAddGame.imageLink;
             displayImage(url);
@@ -49,7 +49,31 @@ namespace The_Gaming_Library
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Next step is to add this to the database");
+            string genre = genreBox.Text;
+            if(genre == "Choose Here")
+            {
+                MessageBox.Show("Please select a genre from the drop-down menu");
+            }
+            else
+            {
+                DBconnect insert = new DBconnect();
+                insert.DBConnect();
+                bool isOpen = insert.OpenConnection();
+                if (isOpen == false)
+                {
+                    MessageBox.Show("Failed to establish database connection");
+                }
+                else
+                {
+                    insert.populateDB(AdminAddGame.gameName, genre, AdminAddGame.console, AdminAddGame.description);
+                }
+                this.Close();
+            }  
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

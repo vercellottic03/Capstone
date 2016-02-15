@@ -15,7 +15,7 @@ namespace The_Gaming_Library
     public partial class AdminAddGame : UserControl
     {
         public static string gameName;
-        public static string genre;
+        public static string console;
         public static string gamePrice;
         public static string description;
         public static string imageLink;
@@ -45,7 +45,7 @@ namespace The_Gaming_Library
         public void submit_Click(object sender, EventArgs e)
         {
             gameName = "";
-            genre = "";
+            console = "";
             imageLink = "";
             description = "";
             string UPC = GameUPC.Text;
@@ -65,7 +65,7 @@ namespace The_Gaming_Library
                             int start = gameName.IndexOf("(") + 1;
                             int end = gameName.IndexOf(")", start);
                             try {
-                                genre = gameName.Substring(start, end - start);
+                                console = gameName.Substring(start, end - start);
                             }
                             catch(Exception)
                             {
@@ -99,7 +99,7 @@ namespace The_Gaming_Library
                     }
                 }
                 //MessageBox.Show("Game name: '" + gameName + "\nGame Price: " + gamePrice + "\nDescription: " + description+ "\nImage linked from this URL: "+imageLink);
-                if (genre == "")
+                if (console == "")
                 {
                     MessageBox.Show("Told ya");
                 }
@@ -107,6 +107,7 @@ namespace The_Gaming_Library
                 {
                     gameToAdd view = new gameToAdd();
                     view.Show();
+                    GameUPC.Clear();
                     this.Refresh();
                 }
             }
