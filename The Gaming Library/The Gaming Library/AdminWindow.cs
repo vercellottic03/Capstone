@@ -62,5 +62,11 @@ namespace The_Gaming_Library
         {
             Logout.BackColor = Color.Chartreuse;
         }
+
+        private void Inventory_Click(object sender, EventArgs e)
+        {
+            inventoryView grid = new inventoryView();
+            grid.Show();
+        }
     }
 }

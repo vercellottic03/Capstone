@@ -63,11 +63,22 @@
       <DependentUpon>AdminWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="DBconnect.cs" />
+    <Compile Include="Games.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Games.xsd</DependentUpon>
+    </Compile>
     <Compile Include="gameToAdd.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="gameToAdd.Designer.cs">
       <DependentUpon>gameToAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="inventoryView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="inventoryView.Designer.cs">
+      <DependentUpon>inventoryView.cs</DependentUpon>
     </Compile>
     <Compile Include="loginWindow.cs">
       <SubType>Form</SubType>
@@ -92,6 +103,9 @@
     <EmbeddedResource Include="gameToAdd.resx">
       <DependentUpon>gameToAdd.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="inventoryView.resx">
+      <DependentUpon>inventoryView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="loginWindow.resx">
       <DependentUpon>loginWindow.cs</DependentUpon>
     </EmbeddedResource>
@@ -107,6 +121,17 @@
     <EmbeddedResource Include="UserWindow.resx">
       <DependentUpon>UserWindow.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Games.xsc">
+      <DependentUpon>Games.xsd</DependentUpon>
+    </None>
+    <None Include="Games.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Games.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Games.xss">
+      <DependentUpon>Games.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

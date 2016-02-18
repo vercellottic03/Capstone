@@ -80,6 +80,7 @@ namespace The_Gaming_Library
             this.Inventory.TabIndex = 3;
             this.Inventory.Text = "View Inventory";
             this.Inventory.UseVisualStyleBackColor = false;
+            this.Inventory.Click += new System.EventHandler(this.Inventory_Click);
             this.Inventory.MouseEnter += new System.EventHandler(this.button1_MouseEnter);
             this.Inventory.MouseLeave += new System.EventHandler(this.button1_MouseLeave);
             // 
