@@ -62,7 +62,24 @@
     <Compile Include="AdminWindow.Designer.cs">
       <DependentUpon>AdminWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="CheckIn.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CheckIn.Designer.cs">
+      <DependentUpon>CheckIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CheckOut.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CheckOut.Designer.cs">
+      <DependentUpon>CheckOut.cs</DependentUpon>
+    </Compile>
     <Compile Include="DBconnect.cs" />
+    <Compile Include="feathers_ptagDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>feathers_ptagDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Games.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -73,12 +90,6 @@
     </Compile>
     <Compile Include="gameToAdd.Designer.cs">
       <DependentUpon>gameToAdd.cs</DependentUpon>
-    </Compile>
-    <Compile Include="inventoryView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="inventoryView.Designer.cs">
-      <DependentUpon>inventoryView.cs</DependentUpon>
     </Compile>
     <Compile Include="loginWindow.cs">
       <SubType>Form</SubType>
@@ -94,17 +105,26 @@
     <Compile Include="UserWindow.Designer.cs">
       <DependentUpon>UserWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewInventory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewInventory.Designer.cs">
+      <DependentUpon>ViewInventory.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AdminAddGame.resx">
       <DependentUpon>AdminAddGame.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminWindow.resx">
       <DependentUpon>AdminWindow.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CheckIn.resx">
+      <DependentUpon>CheckIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CheckOut.resx">
+      <DependentUpon>CheckOut.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="gameToAdd.resx">
       <DependentUpon>gameToAdd.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="inventoryView.resx">
-      <DependentUpon>inventoryView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="loginWindow.resx">
       <DependentUpon>loginWindow.cs</DependentUpon>
@@ -121,6 +141,20 @@
     <EmbeddedResource Include="UserWindow.resx">
       <DependentUpon>UserWindow.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ViewInventory.resx">
+      <DependentUpon>ViewInventory.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="feathers_ptagDataSet.xsc">
+      <DependentUpon>feathers_ptagDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="feathers_ptagDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>feathers_ptagDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="feathers_ptagDataSet.xss">
+      <DependentUpon>feathers_ptagDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Games.xsc">
       <DependentUpon>Games.xsd</DependentUpon>
     </None>

@@ -53,7 +53,6 @@
             this.loginTitle.TabIndex = 0;
             this.loginTitle.Text = "WELCOME TO THE PTAG GAMING LOCKER!";
             this.loginTitle.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.loginTitle.Click += new System.EventHandler(this.label1_Click);
             // 
             // usernameLabel
             // 

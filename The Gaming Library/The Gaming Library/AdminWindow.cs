@@ -1,26 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace The_Gaming_Library
 {
     public partial class AdminWindow : Form
     {
+        //Function that allows me to retrive the loginpage after it has been hidden when sign-in complete
         public Form RefToLogin { get; set; }
+        //Pass the username from the login form in case the name is needed
         string name = LOGINWINDOW.userName;
         public AdminWindow()
         {
             InitializeComponent();
         }
 
+        //Is called when the logout button is clicked
         private void Logout_Click(object sender, EventArgs e)
         {
+            //Pop-up that asks if you would like to sign off, if yes, then login page is recalled and session terminated
             DialogResult dialogResult = MessageBox.Show("Are you sure you want to log out?", "EXIT", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
@@ -29,15 +27,26 @@ namespace The_Gaming_Library
             }
             else if (dialogResult == DialogResult.No)
             {
-                //do nothing
+                //do nothing if they pick no
             }
         }
 
+        //Activated when Add Game is selected, the AdminAddGame User control that is already present on the page becomes visible
         private void button2_Click(object sender, EventArgs e)
         {
             adminAddGame.Visible = true;
+            //Ensures the text field on the user control is highlighted for the sake of the barcode reader 
             adminAddGame.GameUPC.Focus();
         }
+
+        //Activated when Inventory button is selected, just opens the ViewInventory form
+        private void Inventory_Click(object sender, EventArgs e)
+        {
+            ViewInventory grid = new ViewInventory();
+            grid.Show();
+        }
+
+        //Color functions that indicate whichever button the cursor is currently hovering over
         private void button2_MouseEnter(object sender, EventArgs e)
         {
             addGame.BackColor = Color.DarkGreen;
@@ -61,12 +70,6 @@ namespace The_Gaming_Library
         private void logOut_MouseLeave(object sender, EventArgs e)
         {
             Logout.BackColor = Color.Chartreuse;
-        }
-
-        private void Inventory_Click(object sender, EventArgs e)
-        {
-            inventoryView grid = new inventoryView();
-            grid.Show();
         }
     }
 }

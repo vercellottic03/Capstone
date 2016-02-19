@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace The_Gaming_Library
@@ -35,6 +29,20 @@ namespace The_Gaming_Library
             }
             
         }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to log out?", "EXIT", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                this.RefToLogin.Show();
+                this.Close();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                //do nothing
+            }
+
+        }
         private void button2_MouseEnter(object sender, EventArgs e)
         {
             checkIn.BackColor = Color.DarkGreen;
@@ -53,16 +61,23 @@ namespace The_Gaming_Library
         }
         private void logOut_MouseEnter(object sender, EventArgs e)
         {
-            Logout.BackColor = Color.DarkGreen;
+            button1.BackColor = Color.DarkGreen;
         }
         private void logOut_MouseLeave(object sender, EventArgs e)
         {
-            Logout.BackColor = Color.Chartreuse;
+            button1.BackColor = Color.Chartreuse;
         }
 
-        private void UserWindow_Load(object sender, EventArgs e)
+        private void checkIn_Click(object sender, EventArgs e)
         {
-            
+            checkIn1.Visible = true;
+            checkIn1.CheckInUPC.Focus();
+        }
+
+        private void checkOut_Click(object sender, EventArgs e)
+        {
+            checkOut1.Visible = true;
+            checkOut1.CheckOutUPC.Focus();
         }
     }
 }

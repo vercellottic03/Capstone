@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace The_Gaming_Library
@@ -15,8 +12,10 @@ namespace The_Gaming_Library
         [STAThread]
         static void Main()
         {
+            //This is where the application begins, by calling the login window, so when that window is closed, the whole app goes 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            //Begin the process
             Application.Run(new LOGINWINDOW());
         }
     }
