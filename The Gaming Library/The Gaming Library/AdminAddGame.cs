@@ -9,6 +9,7 @@ namespace The_Gaming_Library
     public partial class AdminAddGame : UserControl
     {
         //Declare all variables as public so they are accesible by the confirmation form 
+        public static string UPC;
         public static string gameName;
         public static string console;
         public static string gamePrice;
@@ -37,12 +38,13 @@ namespace The_Gaming_Library
         public void submit_Click(object sender, EventArgs e)
         {
             //Clear all variables in case any were populated from past scans
+            UPC = "";
             gameName = "";
             console = "";
             imageLink = "";
             description = "";
             //This is the entered UPC code from the text field
-            string UPC = GameUPC.Text;
+            UPC = GameUPC.Text;
             //The URL that is sent to Walmart's API, contains my api key and adds the entered UPC code, outputs an XML document
             string URLString = "http://api.walmartlabs.com/v1/items?apiKey=gnfyqemcbacazx8qwbt6fy53&upc=" + UPC + "&format=xml";
             try

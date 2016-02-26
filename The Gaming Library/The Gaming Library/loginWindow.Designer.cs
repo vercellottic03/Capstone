@@ -63,7 +63,7 @@
             this.usernameLabel.Location = new System.Drawing.Point(551, 181);
             this.usernameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.usernameLabel.Name = "usernameLabel";
-            this.usernameLabel.Size = new System.Drawing.Size(183, 31);
+            this.usernameLabel.Size = new System.Drawing.Size(230, 39);
             this.usernameLabel.TabIndex = 1;
             this.usernameLabel.Text = "USER NAME:";
             // 
@@ -73,7 +73,7 @@
             this.UserNameField.Location = new System.Drawing.Point(775, 190);
             this.UserNameField.Margin = new System.Windows.Forms.Padding(2);
             this.UserNameField.Name = "UserNameField";
-            this.UserNameField.Size = new System.Drawing.Size(187, 20);
+            this.UserNameField.Size = new System.Drawing.Size(187, 22);
             this.UserNameField.TabIndex = 2;
             // 
             // PasswordField
@@ -83,7 +83,7 @@
             this.PasswordField.Margin = new System.Windows.Forms.Padding(2);
             this.PasswordField.Name = "PasswordField";
             this.PasswordField.PasswordChar = '*';
-            this.PasswordField.Size = new System.Drawing.Size(187, 20);
+            this.PasswordField.Size = new System.Drawing.Size(187, 22);
             this.PasswordField.TabIndex = 3;
             // 
             // passwordLabel
@@ -94,7 +94,7 @@
             this.passwordLabel.Location = new System.Drawing.Point(554, 251);
             this.passwordLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.passwordLabel.Name = "passwordLabel";
-            this.passwordLabel.Size = new System.Drawing.Size(180, 31);
+            this.passwordLabel.Size = new System.Drawing.Size(226, 39);
             this.passwordLabel.TabIndex = 4;
             this.passwordLabel.Text = "PASSWORD:";
             this.passwordLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -135,11 +135,10 @@
             this.PleaseLogin.AutoSize = true;
             this.PleaseLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PleaseLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.PleaseLogin.Location = new System.Drawing.Point(665, 118);
             this.PleaseLogin.Location = new System.Drawing.Point(670, 123);
             this.PleaseLogin.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.PleaseLogin.Name = "PleaseLogin";
-            this.PleaseLogin.Size = new System.Drawing.Size(211, 31);
+            this.PleaseLogin.Size = new System.Drawing.Size(266, 39);
             this.PleaseLogin.TabIndex = 0;
             this.PleaseLogin.Text = "PLEASE LOGIN";
             // 
@@ -177,6 +176,7 @@
             this.Name = "LOGINWINDOW";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Welcome!";
+            this.Load += new System.EventHandler(this.LOGINWINDOW_Load);
             ((System.ComponentModel.ISupportInitialize)(this.PTAGLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -74,6 +74,12 @@
     <Compile Include="CheckOut.Designer.cs">
       <DependentUpon>CheckOut.cs</DependentUpon>
     </Compile>
+    <Compile Include="confirmCheckout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="confirmCheckout.Designer.cs">
+      <DependentUpon>confirmCheckout.cs</DependentUpon>
+    </Compile>
     <Compile Include="DBconnect.cs" />
     <Compile Include="feathers_ptagDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -122,6 +128,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CheckOut.resx">
       <DependentUpon>CheckOut.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="confirmCheckout.resx">
+      <DependentUpon>confirmCheckout.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="gameToAdd.resx">
       <DependentUpon>gameToAdd.cs</DependentUpon>

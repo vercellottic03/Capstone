@@ -42,7 +42,7 @@
             this.label1.ForeColor = System.Drawing.Color.Chartreuse;
             this.label1.Location = new System.Drawing.Point(0, 5);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(898, 44);
+            this.label1.Size = new System.Drawing.Size(1142, 56);
             this.label1.TabIndex = 0;
             this.label1.Text = "Pick A Game From The Locker and scan It now";
             // 
@@ -52,7 +52,7 @@
             this.CheckOutUPC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckOutUPC.Location = new System.Drawing.Point(315, 260);
             this.CheckOutUPC.Name = "CheckOutUPC";
-            this.CheckOutUPC.Size = new System.Drawing.Size(250, 22);
+            this.CheckOutUPC.Size = new System.Drawing.Size(250, 26);
             this.CheckOutUPC.TabIndex = 1;
             // 
             // submit
@@ -64,6 +64,7 @@
             this.submit.TabIndex = 2;
             this.submit.Text = "button1";
             this.submit.UseVisualStyleBackColor = true;
+            this.submit.Click += new System.EventHandler(this.submit_Click);
             // 
             // Cancel
             // 
@@ -84,6 +85,7 @@
             // CheckOut
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Controls.Add(this.Cancel);
             this.Controls.Add(this.submit);
@@ -100,7 +102,7 @@
 
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.TextBox CheckOutUPC;
-        private System.Windows.Forms.Button submit;
+        public System.Windows.Forms.Button submit;
         private System.Windows.Forms.Button Cancel;
     }
 }

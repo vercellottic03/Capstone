@@ -49,7 +49,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(2060, 76);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Welcome To The Gaming Locker! What Would You  Like To Do?";
+            this.label1.Text = "Welcome To The Gaming Locker! What Would You Like To Do?";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label2
@@ -67,7 +67,7 @@
             this.Logout.BackColor = System.Drawing.Color.Chartreuse;
             this.Logout.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.Logout.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Logout.Location = new System.Drawing.Point(12, 787);
+            this.Logout.Location = new System.Drawing.Point(12, 779);
             this.Logout.Name = "Logout";
             this.Logout.Size = new System.Drawing.Size(140, 70);
             this.Logout.TabIndex = 2;
@@ -82,7 +82,7 @@
             this.checkOut.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.checkOut.BackColor = System.Drawing.Color.Chartreuse;
             this.checkOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkOut.Location = new System.Drawing.Point(544, 449);
+            this.checkOut.Location = new System.Drawing.Point(544, 445);
             this.checkOut.Name = "checkOut";
             this.checkOut.Size = new System.Drawing.Size(355, 164);
             this.checkOut.TabIndex = 6;
@@ -97,7 +97,7 @@
             this.checkIn.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.checkIn.BackColor = System.Drawing.Color.LawnGreen;
             this.checkIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkIn.Location = new System.Drawing.Point(544, 231);
+            this.checkIn.Location = new System.Drawing.Point(544, 227);
             this.checkIn.Name = "checkIn";
             this.checkIn.Size = new System.Drawing.Size(355, 164);
             this.checkIn.TabIndex = 5;
@@ -115,7 +115,7 @@
             this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(12, 659);
+            this.button1.Location = new System.Drawing.Point(12, 651);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(140, 70);
             this.button1.TabIndex = 7;
@@ -127,6 +127,7 @@
             // 
             // checkIn1
             // 
+            this.checkIn1.AutoSize = true;
             this.checkIn1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.checkIn1.Location = new System.Drawing.Point(158, 205);
             this.checkIn1.Margin = new System.Windows.Forms.Padding(9, 8, 9, 8);
@@ -137,6 +138,7 @@
             // 
             // checkOut1
             // 
+            this.checkOut1.AutoSize = true;
             this.checkOut1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.checkOut1.Location = new System.Drawing.Point(158, 205);
             this.checkOut1.Name = "checkOut1";
@@ -149,7 +151,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.CancelButton = this.button1;
-            this.ClientSize = new System.Drawing.Size(1362, 741);
+            this.ClientSize = new System.Drawing.Size(1354, 733);
             this.ControlBox = false;
             this.Controls.Add(this.checkIn1);
             this.Controls.Add(this.checkOut1);

@@ -42,7 +42,7 @@
             this.label1.ForeColor = System.Drawing.Color.Chartreuse;
             this.label1.Location = new System.Drawing.Point(-2, 4);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(903, 44);
+            this.label1.Size = new System.Drawing.Size(1149, 56);
             this.label1.TabIndex = 0;
             this.label1.Text = "Please Scan the game you are returning now";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -53,7 +53,7 @@
             this.CheckInUPC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckInUPC.Location = new System.Drawing.Point(315, 260);
             this.CheckInUPC.Name = "CheckInUPC";
-            this.CheckInUPC.Size = new System.Drawing.Size(250, 22);
+            this.CheckInUPC.Size = new System.Drawing.Size(250, 26);
             this.CheckInUPC.TabIndex = 1;
             // 
             // button1
@@ -65,6 +65,7 @@
             this.button1.TabIndex = 2;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Cancel
             // 
@@ -85,6 +86,7 @@
             // CheckIn
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Controls.Add(this.Cancel);
             this.Controls.Add(this.button1);
@@ -101,7 +103,7 @@
 
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.TextBox CheckInUPC;
-        private System.Windows.Forms.Button button1;
+        public System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button Cancel;
     }
 }

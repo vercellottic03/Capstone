@@ -26,6 +26,7 @@ namespace The_Gaming_Library
             //Assigns username and password variables to their repsective text fields
             userName = UserNameField.Text;
             string password = PasswordField.Text;
+            UserNameField.Focus();
             //Creates DBconnect object that will handle DB work
             DBconnect data = new DBconnect();
             data.DBConnect();
@@ -59,7 +60,7 @@ namespace The_Gaming_Library
                     else
                     {
                         //User was plain user, open the user form
-                        MessageBox.Show("Welcome User");
+                        //MessageBox.Show("Welcome User");
                         UserWindow us = new UserWindow();
                         //Same process as the admin
                         us.RefToLogin = this;
@@ -67,7 +68,8 @@ namespace The_Gaming_Library
                         us.Show();
 
                     }
-                    //Clear all text fields so when the form is called again everything is blank
+                    //Clear all text fields and rehighlight the username so when the form is called again 
+                    //everything is blank and the username is ready for another
                     UserNameField.Text = string.Empty;
                     PasswordField.Text = string.Empty;
                 }
@@ -90,6 +92,11 @@ namespace The_Gaming_Library
         private void button2_MouseLeave(object sender, EventArgs e)
         {
             ExitButton.BackColor = Color.Chartreuse;
+        }
+
+        private void LOGINWINDOW_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

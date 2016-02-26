@@ -15,6 +15,7 @@ namespace The_Gaming_Library
         {
             //Pass all of the parsed variables from the AdminAddGame User control to be displayed here
             //they are passed on the loading of the form so the data will be displayed right when the window pops up
+            string UPC = AdminAddGame.UPC;
             gameName.Text = AdminAddGame.gameName;
             gamePrice.Text = AdminAddGame.console;
             description.Text = AdminAddGame.description;
@@ -49,6 +50,7 @@ namespace The_Gaming_Library
         //Function called when yes is selected, begins the process of 
         private void button1_Click(object sender, EventArgs e)
         {
+            MessageBox.Show(AdminAddGame.UPC);
             //Admin must choose a genre from a drop down menu as genre is not provided by Walmart, will deny if genre hasn't been selected
             string genre = genreBox.Text;
             if(genre == "Choose Here")
@@ -69,7 +71,7 @@ namespace The_Gaming_Library
                 else
                 {
                     //See DBconnect.cs for implementation, pass all variables in the correct order
-                    insert.populateDB(AdminAddGame.gameName, genre, AdminAddGame.console, AdminAddGame.description);
+                    insert.populateDB(AdminAddGame.gameName, genre, AdminAddGame.console, AdminAddGame.description, AdminAddGame.UPC, AdminAddGame.imageLink);
                 }
                 //always close
                 this.Close();

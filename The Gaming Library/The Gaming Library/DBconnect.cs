@@ -120,21 +120,24 @@ namespace The_Gaming_Library
                 string role = Convert.ToString(cmd.ExecuteScalar());
                 if (role == "admin")
                 {
+                    this.CloseConnection();
                     return true;
                 }
                 else
                 {
+                    this.CloseConnection();
                     return false;
                 }
             }
             else
             {
+                this.CloseConnection();
                 return false;
             }
         }
         //Called when an admin approves of the addition of a new game, adds that games information to the DB
         //If game is already in the DB, just increment the count column for that game, cut down reduncancy
-        public void populateDB(string name, string genre, string console, string descr)
+        public void populateDB(string name, string genre, string console, string descr, string upc, string image)
         {
             //Connection was open, must close to avoid issues
             this.CloseConnection();
@@ -153,7 +156,7 @@ namespace The_Gaming_Library
                 //Checks if exists is still 0, if it isn't, just increment the counter
                 if (exists != 0)
                 {
-                    MessageBox.Show("Games already in the db, incrementing counter...");
+                    MessageBox.Show("Games already in the db, incrementing counter.");
                     //Count+1 Sql command
                     using (MySqlCommand cmd = new MySqlCommand("UPDATE Games SET count = count + 1 WHERE name=@name", connection))
                     {
@@ -165,7 +168,7 @@ namespace The_Gaming_Library
                 else
                 {
                     //More lengthy Sql statement to insert all data entered into the DB in the appropriate fields
-                    using (MySqlCommand cmd = new MySqlCommand("INSERT INTO Games(name, console, genre, description) values (@name, @console, @genre, @description)", connection))
+                    using (MySqlCommand cmd = new MySqlCommand("INSERT INTO Games(name, console, genre, description, image, UPC) values (@name, @console, @genre, @description, @image, @UPC)", connection))
                     {
                         //Assigns all variables to their repspective MySql fields
                         //I am using this method as it is a means of sanitizing the input, preventing any form of Sql injection
@@ -173,6 +176,8 @@ namespace The_Gaming_Library
                         cmd.Parameters.AddWithValue("console", console);
                         cmd.Parameters.AddWithValue("genre", genre);
                         cmd.Parameters.AddWithValue("description", descr);
+                        cmd.Parameters.AddWithValue("image", image);
+                        cmd.Parameters.AddWithValue("UPC", upc);
                         cmd.ExecuteNonQuery();
                     }
                     //Show successful add
@@ -186,9 +191,141 @@ namespace The_Gaming_Library
                 MessageBox.Show("Issues connecting to the database");
             }
             //Always close the connection
-            this.CloseConnection();   
+            this.CloseConnection();
+        }
+
+        private static string qName, qConsole, qSDescr, qImage;
+        public Tuple<string, string, string, string> checkoutQuery(string username, string gameCode)
+        {
+            int exists = 0;
+            this.CloseConnection();
+            this.OpenConnection();
+            qName = ""; qConsole = ""; qSDescr = ""; qImage = "";
+            using (MySqlCommand cmd = new MySqlCommand("select name, console, description, image from Games where UPC = @gamecode", connection))
+            {
+                cmd.Parameters.AddWithValue("gamecode", gameCode);
+                exists = Convert.ToInt32(cmd.ExecuteNonQuery());
+                //MessageBox.Show(Convert.ToString(exists));
+                if (exists != 0)
+                {
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            qName = reader.GetString(0);
+                            qConsole = reader.GetString(1);
+                            qSDescr = reader.GetString(2);
+                            qImage = reader.GetString(3);
+                            //MessageBox.Show(qConsole, qImage);
+                        }
+                    }
+                }
+                else
+                {
+                    //MessageBox.Show("The item you scanned is not in our database\nYou must scan a game currently available in the locker");
+                    return Tuple.Create("", "", "", "");
+                }
+            }
+            //MessageBox.Show(qName + "\n" + qConsole + "\n" + qSDescr + "\n" + qImage);
+            return Tuple.Create(qName, qConsole, qSDescr, qImage);
+        }
+        public void checkoutConfirm(string username, string gameName)
+        {
+            DateTime dateIn = DateTime.Now;
+            DateTime dateDue = DateTime.Now.AddDays(7.5);
+            this.CloseConnection();
+            this.OpenConnection();
+            using(MySqlCommand cmd = new MySqlCommand("Insert into CheckoutLog(userId,gameId,checkoutTime,dueDate) values(@username,@gamename,@outtime,@duedate)",connection))
+            {
+                cmd.Parameters.AddWithValue("username", username);
+                cmd.Parameters.AddWithValue("gamename", gameName);
+                cmd.Parameters.AddWithValue("outtime", dateIn);
+                cmd.Parameters.AddWithValue("duedate", dateDue);
+                cmd.ExecuteNonQuery();
+            }
+            MessageBox.Show("Game Checked Out!\nYour game is due back " + dateDue);
+            this.CloseConnection();
+        }
+        public void checkInConfirm(string username, string gameId)
+        {
+            string game = "";
+            this.CloseConnection();
+            this.OpenConnection();
+            using (MySqlCommand findName = new MySqlCommand("select name from Games where UPC = @upc", connection))
+            {
+                findName.Parameters.AddWithValue("upc", gameId);
+                game = Convert.ToString(findName.ExecuteScalar());
+                MessageBox.Show(game);
+            }
+            if (game != "")
+            {
+                using (MySqlCommand cmd = new MySqlCommand("SELECT TransactionId FROM CheckoutLog WHERE gameId = @game1 AND userId = @name1 AND completed = " + 0, connection))
+                {
+                    cmd.Parameters.AddWithValue("name1", username);
+                    cmd.Parameters.AddWithValue("game1", game);
+                    int result = Convert.ToInt32(cmd.ExecuteScalar());
+                    MessageBox.Show(Convert.ToString(result));
+                    using (MySqlCommand update = new MySqlCommand("UPDATE CheckoutLog SET completed = 1 WHERE TransactionId = @id", connection))
+                    {
+                        update.Parameters.AddWithValue("id", result);
+                        update.ExecuteNonQuery();
+                    }
+                        MessageBox.Show("Game Successfully returned!\nThank you for using the Gaming Locker!\nYou may pick another game to checkout now.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("An error occurred and we were unable to process your requst.\nThe item you scanned was not the game you have checked out, please scan the proper item.");
+            }
+        }
+        public bool checkinEligible(string username)
+        {
+            this.CloseConnection();
+            this.OpenConnection();
+            int exists = 0;
+            using (MySqlCommand cmd = new MySqlCommand("SELECT TransactionId FROM CheckoutLog WHERE userId = @username AND completed = "+0, connection))
+            {
+                cmd.Parameters.AddWithValue("username", username);
+                exists = Convert.ToInt32(cmd.ExecuteScalar());
+            }
+            if (exists != 0)
+            {
+                this.CloseConnection();
+                return true;
+
+            }
+            else
+            {
+                //MessageBox.Show("You can't check in a game if you have not checked one out");
+                this.CloseConnection();
+                return false;
+            }
+        }
+        public bool checkoutEligible(string username)
+        {
+            this.CloseConnection();
+            this.OpenConnection();
+            int exists = 0;
+            using (MySqlCommand cmd = new MySqlCommand("SELECT TransactionId FROM CheckoutLog WHERE userId = @username AND completed = " + 0, connection))
+            {
+                cmd.Parameters.AddWithValue("username", username);
+                exists = Convert.ToInt32(cmd.ExecuteScalar());
+            }
+            if (exists != 0)
+            {
+                this.CloseConnection();
+                return false;
+
+            }
+            else
+            {
+                //MessageBox.Show("You can't check in a game if you have not checked one out");
+                this.CloseConnection();
+                return true;
+            }
         }
     }
 }
+    
 
 

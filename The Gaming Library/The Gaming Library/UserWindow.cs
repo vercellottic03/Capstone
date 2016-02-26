@@ -70,14 +70,35 @@ namespace The_Gaming_Library
 
         private void checkIn_Click(object sender, EventArgs e)
         {
-            checkIn1.Visible = true;
-            checkIn1.CheckInUPC.Focus();
+            DBconnect inchk = new DBconnect();
+            inchk.DBConnect();
+            if (inchk.checkinEligible(name) == true)
+            {
+                checkIn1.Visible = true;
+                checkIn1.CheckInUPC.Focus();
+                this.AcceptButton = checkIn1.button1;
+            }
+            else
+            {
+                MessageBox.Show("You cannot check-in a game if you have not checked one out.\nPlease hit the Check-Out button to select a game to rent.");
+            }
         }
 
         private void checkOut_Click(object sender, EventArgs e)
         {
-            checkOut1.Visible = true;
-            checkOut1.CheckOutUPC.Focus();
+            DBconnect outchk = new DBconnect();
+            outchk.DBConnect();
+            if (outchk.checkoutEligible(name) == true)
+            {
+                checkOut1.Visible = true;
+                checkOut1.CheckOutUPC.Focus();
+                this.AcceptButton = checkOut1.submit;
+            }
+            else
+            {
+                MessageBox.Show("You already have a game checked out!\nYou can only have one game checked out at a time.\nPlease check in the game you previously rented before renting another.");
+            }
+            
         }
     }
 }

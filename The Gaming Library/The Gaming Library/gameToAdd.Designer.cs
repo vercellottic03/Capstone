@@ -136,7 +136,7 @@
             "FPS ",
             "Racing ",
             "Sports"});
-            this.genreBox.Location = new System.Drawing.Point(1015, 87);
+            this.genreBox.Location = new System.Drawing.Point(892, 124);
             this.genreBox.Name = "genreBox";
             this.genreBox.Size = new System.Drawing.Size(121, 24);
             this.genreBox.Sorted = true;
@@ -148,7 +148,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Chartreuse;
-            this.label2.Location = new System.Drawing.Point(911, 90);
+            this.label2.Location = new System.Drawing.Point(788, 127);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(98, 16);
             this.label2.TabIndex = 8;
