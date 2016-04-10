@@ -50,7 +50,6 @@ namespace The_Gaming_Library
         //Function called when yes is selected, begins the process of 
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(AdminAddGame.UPC);
             //Admin must choose a genre from a drop down menu as genre is not provided by Walmart, will deny if genre hasn't been selected
             string genre = genreBox.Text;
             if(genre == "Choose Here")

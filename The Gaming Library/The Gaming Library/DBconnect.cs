@@ -4,6 +4,8 @@ using MySql.Data.MySqlClient;
 using System.Windows.Forms;
 //namespaces so I do not need to put system. and system.IO. in front of every command
 using System;
+using System.Text;
+using System.Security.Cryptography;
 
 namespace The_Gaming_Library
 {
@@ -11,7 +13,7 @@ namespace The_Gaming_Library
     {
         //database object
         private MySqlConnection connection;
-        //server string, will be assigned value of feathersup server
+        //server string, will be assigned value of feathersup serverC:\Users\cody\Documents\Capstone\The Gaming Library\The Gaming Library\DBconnect.cs
         private string server;
         private string database;
         private string uid;
@@ -86,29 +88,63 @@ namespace The_Gaming_Library
         //Used by the login window when user hits submit, checks username and password to ensure credentials are correct
         public bool Validate(string username, string password)
         {
-            //Actual Sql statement that checks for a username and if it has a matching password
-            string query = "SELECT * FROM Users WHERE UserName ='" + username + "'and Password ='" + password + "'";
-            MySqlCommand cmd = new MySqlCommand(query, connection);
-            //Create a data reader and Execute the command
-            MySqlDataReader dataReader = cmd.ExecuteReader();
 
-            //Condition checker, if datareader was written to, that means there was a matche in the DB, and the user is authenticated
-            //If datareader was not written to, there was no match and the login process fails
-            if (dataReader.Read())
+            //Actual Sql statement that checks for a username and if it has a matching password
+            using (MySqlCommand cmd = new MySqlCommand("select UserName from Users where UserName = @name", connection))
             {
-                dataReader.Close();
-                //Must always close connection
-                this.CloseConnection();
-                return true;
-            }
-            else
-            {
-                dataReader.Close();
-                this.CloseConnection();
-                return false;
+                cmd.Parameters.AddWithValue("name", username);
+                string confirm = Convert.ToString(cmd.ExecuteScalar());
+                MessageBox.Show(confirm);
+                if (confirm != "")
+                {
+                    using (MySqlCommand cmd2 = new MySqlCommand("select Salt from Users where UserName = @name", connection))
+                    {
+                        cmd2.Parameters.AddWithValue("name", username);
+                        string salt = Convert.ToString(cmd2.ExecuteScalar());
+                        MessageBox.Show(salt);
+                        string combined = salt + password;
+                        MessageBox.Show(combined);
+                        string hashedPassword = hashPassword(combined);
+                        MessageBox.Show(hashedPassword);
+                        using (MySqlCommand cmd3 = new MySqlCommand("select Password from Users where UserName = @name", connection))
+                        {
+                            cmd3.Parameters.AddWithValue("name", username);
+                            string origHash = Convert.ToString(cmd3.ExecuteScalar());
+                            if(hashedPassword == origHash)
+                            {
+                                MessageBox.Show("It works!");
+                                this.CloseConnection();
+                                return true;
+                            }
+                            else
+                            {
+                                MessageBox.Show(origHash + "\n" + hashedPassword);
+                                this.CloseConnection();
+                                return false;
+                            }
+                        }
+                    }
+                } else
+                {
+                    this.CloseConnection();
+                    return false;
+                }
             }
         }
+
         //If user is authenticated, then it must be determined if they are admin status, this function checks the role field for "admin"
+        public string hashPassword(string password)
+        {
+            byte[] bytes = Encoding.UTF8.GetBytes(password);
+            SHA256Managed hashstring = new SHA256Managed();
+            byte[] hash = hashstring.ComputeHash(bytes);
+            string hashString = string.Empty;
+            foreach (byte x in hash)
+            {
+                hashString += String.Format("{0:x2}", x);
+            }
+            return hashString;
+        }
         public bool isAdmin(string username)
         {
             //Queries the record with the approved username
