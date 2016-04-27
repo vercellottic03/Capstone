@@ -94,31 +94,31 @@ namespace The_Gaming_Library
             {
                 cmd.Parameters.AddWithValue("name", username);
                 string confirm = Convert.ToString(cmd.ExecuteScalar());
-                MessageBox.Show(confirm);
+                //MessageBox.Show(confirm);
                 if (confirm != "")
                 {
                     using (MySqlCommand cmd2 = new MySqlCommand("select Salt from Users where UserName = @name", connection))
                     {
                         cmd2.Parameters.AddWithValue("name", username);
                         string salt = Convert.ToString(cmd2.ExecuteScalar());
-                        MessageBox.Show(salt);
+                        //MessageBox.Show(salt);
                         string combined = salt + password;
-                        MessageBox.Show(combined);
+                        //MessageBox.Show(combined);
                         string hashedPassword = hashPassword(combined);
-                        MessageBox.Show(hashedPassword);
+                        //MessageBox.Show(hashedPassword);
                         using (MySqlCommand cmd3 = new MySqlCommand("select Password from Users where UserName = @name", connection))
                         {
                             cmd3.Parameters.AddWithValue("name", username);
                             string origHash = Convert.ToString(cmd3.ExecuteScalar());
                             if(hashedPassword == origHash)
                             {
-                                MessageBox.Show("It works!");
+                                //MessageBox.Show("It works!");
                                 this.CloseConnection();
                                 return true;
                             }
                             else
                             {
-                                MessageBox.Show(origHash + "\n" + hashedPassword);
+                                //MessageBox.Show(origHash + "\n" + hashedPassword);
                                 this.CloseConnection();
                                 return false;
                             }
@@ -291,7 +291,7 @@ namespace The_Gaming_Library
             {
                 findName.Parameters.AddWithValue("upc", gameId);
                 game = Convert.ToString(findName.ExecuteScalar());
-                MessageBox.Show(game);
+                //MessageBox.Show(game);
             }
             if (game != "")
             {
@@ -300,7 +300,7 @@ namespace The_Gaming_Library
                     cmd.Parameters.AddWithValue("name1", username);
                     cmd.Parameters.AddWithValue("game1", game);
                     int result = Convert.ToInt32(cmd.ExecuteScalar());
-                    MessageBox.Show(Convert.ToString(result));
+                    //MessageBox.Show(Convert.ToString(result));
                     using (MySqlCommand update = new MySqlCommand("UPDATE CheckoutLog SET completed = 1 WHERE TransactionId = @id", connection))
                     {
                         update.Parameters.AddWithValue("id", result);
