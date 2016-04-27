@@ -40,7 +40,7 @@ namespace The_Gaming_Library
                 //See DBconnect.cs for implementation, if function returns false, user credentials were denied
                 if (data.Validate(userName, password) == false)
                 {
-                    MessageBox.Show("Invalid user name or password, please try again");
+                    MessageBox.Show("Invalid user name or password, please try again.");
                 }
                 else
                 {

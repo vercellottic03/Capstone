@@ -27,7 +27,7 @@ namespace The_Gaming_Library
         }
         private void displayImage(string imageURL)
         {
-            MessageBox.Show(imageURL);
+            //MessageBox.Show(imageURL);
             var request = WebRequest.Create(imageURL);
 
             using (var response = request.GetResponse())

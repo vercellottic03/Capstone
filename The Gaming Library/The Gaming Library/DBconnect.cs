@@ -97,6 +97,17 @@ namespace The_Gaming_Library
                 //MessageBox.Show(confirm);
                 if (confirm != "")
                 {
+                    using (MySqlCommand banCheck = new MySqlCommand("select banStatus from Users where UserName = @name", connection))
+                    {
+                        banCheck.Parameters.AddWithValue("name", username);
+                        int status = Convert.ToInt32(banCheck.ExecuteScalar());
+                        if (status == 1)
+                        {
+                            MessageBox.Show("You have been banned! Until you see the locker admin and have this ban lifted, you will be unable to sign in.");
+                            this.CloseConnection();
+                            return false;
+                        }
+                    }
                     using (MySqlCommand cmd2 = new MySqlCommand("select Salt from Users where UserName = @name", connection))
                     {
                         cmd2.Parameters.AddWithValue("name", username);
